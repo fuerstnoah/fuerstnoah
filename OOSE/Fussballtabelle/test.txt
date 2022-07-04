@@ -1,0 +1,1 @@
+current=18:test,0,0,0,0;FC Bayern,0,0,0,0;Mainz05,0,0,0,0;Wolfsburg,0,0,0,0;Gladbach,0,0,0,0;Frankfurt,0,0,0,0;Schalke,0,0,0,0;Lautern,0,0,0,0;Berlin,0,0,0,0;Leipzig,0,0,0,0;Hoffenheim,0,0,0,0;Leverkusen,0,0,0,0;Darmstadt,0,0,0,0;Stuttgart,0,0,0,0;Hamburg,0,0,0,0;Freiburg,0,0,0,0;Augsburg,0,0,0,0;Bremen,0,0,0,0;
