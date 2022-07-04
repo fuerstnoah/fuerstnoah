@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this template
+-->
+<HSBib>
+    <HSName>HSRM</HSName>
+    <Books>
+        <Book ID="Jo15" Author="Fritz Jobst" LentBy="001" ReturnDate="15.08.2022">Programmieren in Java 8</Book>
+        <Book ID="HT03" Author="David Thomas, Andrew Hunt" LentBy="" ReturnDate="">Der Pragmatische Programmierer</Book>
+        <Book ID="Ma09" Author="Robert C. Martin" LentBy="005" ReturnDate="31.09.2022">Clean Code - Refactoring, Patterns, Testen und Techniken für sauberen Code</Book>
+    </Books>
+    <Personal>
+        <Person ID="001" Type="Student" Email="noah.liebrecht@student.hs-rm.de">Noah Liebrecht</Person>
+        <Person ID="002" Type="Professor" Email="bt@hs-rm.de">
+            Bernhard Turban
+        </Person>
+
+        <Person ID="003" Type="Dean" Email="mm@hs-rm.de">
+            Max Mustermann
+        </Person>
+
+        <Person ID="004" Type="Student" Email="mf@hs-rm.de">
+            Moritz Faultier
+        </Person>
+
+        <Person ID="005" Type="Student" Email="tc@hs-rm.de">
+            Torsten Checker
+        </Person>
+    </Personal>
+</HSBib>
