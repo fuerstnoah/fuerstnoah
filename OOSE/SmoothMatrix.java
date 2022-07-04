@@ -12,56 +12,63 @@ public class SmoothMatrix{
     public static void main(String[] args){
         long[][] matrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}};
         printMatrix(matrix);
-        matrix = glaetteMatrix(matrix);
+        matrix = smoothenMatrix(matrix);
         printMatrix(matrix);
     }
 
-    static void printMatrix(long[][] mat){
+    private static void printMatrix(long[][] mat){
         for(long[] mat1 : mat){
             System.out.println();
-            for(int j = 0; j < mat1.length; j ++){
-                System.out.print(mat1[j] + " ");
+            for(long l : mat1){
+                System.out.println(l + " ");
             }
         }
     }
 
-    static long[][] glaetteMatrix(long[][] mat){
-        long[][] zielM = new long[mat.length][mat[0].length];
-
-        for(int i = 0; i < mat.length; i ++){
-            for(int j = 0; j < mat[i].length; j ++){
-                zielM[i][j] = durchschnitt(mat, i, j);
+    private static long[][] smoothenMatrix(long[][] mat){
+        long[][] targetMatrix = new long[mat.length][mat[0].length];
+        for(int i = 0; i < mat.length; i++){
+            for(int j = 0; j < mat[i].length; j++){
+                targetMatrix[i][j] = avgOfMatrix(mat, i, j);
 
             }
-
         }
-        return zielM;
+        return targetMatrix;
     }
 
-    static long durchschnitt(long[][] mat, int i, int j){
-        long durchschnitt;
+    private static long avgOfMatrix(long[][] mat, int i, int j){
         if(i == 0 && j == 0){
-            return (mat[i][j] + mat[i][j + 1] + mat[i + 1][j] + mat[i + 1][j + 1]) / 4;
+            return avg(mat[i][j], mat[i][j + 1], mat[i + 1][j], mat[i + 1][j + 1]);
         }else if(i == 0 && j == mat[i].length - 1){
-            durchschnitt = (mat[i][j] + mat[i][j - 1] + mat[i + 1][j] + mat[i + 1][j - 1]) / 4;
+            return avg(mat[i][j], mat[i][j - 1], mat[i + 1][j], mat[i + 1][j - 1]);
         }else if(i == 0){
-            durchschnitt = (mat[i][j] + mat[i][j + 1] + mat[i + 1][j] + mat[i + 1][j + 1] + mat[i][j - 1] + mat[i + 1][j - 1]) / 6;
+            return avg(mat[i][j], mat[i][j + 1], mat[i + 1][j], mat[i + 1][j + 1], mat[i][j - 1], mat[i + 1][j - 1]);
         }else if(i == mat.length - 1 && j == 0){
-            durchschnitt = (mat[i][j] + mat[i][j + 1] + mat[i - 1][j] + mat[i - 1][j + 1]) / 4;
+            return avg(mat[i][j], mat[i][j + 1], mat[i - 1][j], mat[i - 1][j + 1]);
         }else if(j == 0){
-            durchschnitt = (mat[i][j] + mat[i][j + 1] + mat[i + 1][j] + mat[i + 1][j + 1] + mat[i - 1][j] + mat[i - 1][j + 1]) / 6;
+            return avg(mat[i][j], mat[i][j + 1], mat[i + 1][j], mat[i + 1][j + 1], mat[i - 1][j], mat[i - 1][j + 1]);
         }else if(i == mat.length - 1 && j == mat[i].length - 1){
-            durchschnitt = (mat[i][j] + mat[i][j - 1] + mat[i - 1][j] + mat[i - 1][j - 1]) / 4;
+            return avg(mat[i][j], mat[i][j - 1], mat[i - 1][j], mat[i - 1][j - 1]);
         }else if(i == mat.length - 1){
-            durchschnitt = (mat[i][j] + mat[i][j + 1] + mat[i - 1][j] + mat[i - 1][j + 1] + mat[i][j - 1] + mat[i - 1][j - 1]) / 6;
+            return avg(mat[i][j], mat[i][j + 1], mat[i - 1][j], mat[i - 1][j + 1], mat[i][j - 1], mat[i - 1][j - 1]);
         }else if(j == mat[i].length - 1){
-            durchschnitt = (mat[i][j] + mat[i][j - 1] + mat[i + 1][j] + mat[i + 1][j - 1] + mat[i - 1][j] + mat[i - 1][j - 1]) / 6;
+            return avg(mat[i][j], mat[i][j - 1], mat[i + 1][j], mat[i + 1][j - 1], mat[i - 1][j], mat[i - 1][j - 1]);
         }else{
-            durchschnitt = (mat[i][j] + mat[i - 1][j - 1] + mat[i - 1][j] + mat[i - 1][j + 1] + mat[i][j - 1] + mat[i][j + 1] + mat[i + 1][j - 1] + mat[i + 1][j] + mat[i + 1][j + 1]) / 9;
+            return avg(mat[i][j], mat[i - 1][j - 1], mat[i - 1][j], mat[i - 1][j + 1], mat[i][j - 1], mat[i][j + 1], mat[i + 1][j - 1], mat[i + 1][j],
+                    mat[i + 1][j + 1]);
         }
+    }
 
-        return durchschnitt;
-
+    private static long avg(long... a){
+        if(a.length == 0){
+            return 0;
+        }
+        long avg = 0;
+        for(long l : a){
+            avg += l;
+        }
+        avg /= a.length;
+        return avg;
     }
 
 }
