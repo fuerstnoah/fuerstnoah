@@ -41,7 +41,7 @@ public class SmoothMatrix{
     static long durchschnitt(long[][] mat, int i, int j){
         long durchschnitt;
         if(i == 0 && j == 0){
-            durchschnitt = (mat[i][j] + mat[i][j + 1] + mat[i + 1][j] + mat[i + 1][j + 1]) / 4;
+            return (mat[i][j] + mat[i][j + 1] + mat[i + 1][j] + mat[i + 1][j + 1]) / 4;
         }else if(i == 0 && j == mat[i].length - 1){
             durchschnitt = (mat[i][j] + mat[i][j - 1] + mat[i + 1][j] + mat[i + 1][j - 1]) / 4;
         }else if(i == 0){
